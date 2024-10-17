@@ -1,0 +1,53 @@
+<div class="py-8 px-4 mx-auto max-w-5xl lg:py-16">
+  <h1 class="text-balance text-xl font-bold tracking-tight text-gray-900 sm:text-4xl pb-10">List of my notes</h1>
+
+  <!-- Contenedor de las cards con Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    @for (note of notes; track $index) {
+    <div
+      class="relative w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <button (click)="toggleFavorite(note)" class="absolute top-4 left-4 text-gray-400 hover:text-yellow-500 p-2" style="z-index:1;"
+        [ngClass]="note.pis_favorite ? 'text-yellow-400' : 'text-gray-400'">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z" />
+        </svg>
+      </button>
+      <div class="flex justify-end px-4 pt-4 relative">
+        <!-- Botón del Dropdown -->
+        <button (click)="toggleDropdown($index)"
+          class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
+          type="button">
+          <span class="sr-only">Open dropdown</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+            viewBox="0 0 16 3">
+            <path
+              d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+          </svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div [ngClass]="{'hidden': !note.isDropdownVisible}"
+          class="z-10 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-full mt-2">
+          <ul class="py-2">
+            <li>
+              <a href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit</a>
+            </li>
+            <li>
+              <a href="#"
+                class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col items-center pb-10">
+        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{note.ptitle}}</h5>
+        <p class="text-sm text-gray-500 dark:text-gray-400 p-5 h-[150px] overflow-auto">{{note.pdescription}}</p>
+        <div class="flex flex-col mt-4 md:mt-6 text-sm text-gray-500 dark:text-gray-400">
+          <p>Created: {{note.pcreated_at | date:'short'}}</p>
+          <p>Modified: {{note.pupdated_at | date:'short'}}</p>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
