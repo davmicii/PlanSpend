@@ -1,0 +1,21 @@
+/* Personalización de la barra de desplazamiento solo para WebKit (Chrome, Safari) */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px; /* Ancho de la barra */
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Color de fondo de la pista */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo de la barra con transparencia */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 3px solid transparent; /* Espacio alrededor del pulgar */
+}
+
+/* Firefox scrollbar customization */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(255, 255, 255, 0.2);
+}
