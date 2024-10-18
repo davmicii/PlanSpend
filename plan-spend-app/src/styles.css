@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark .datatable-wrapper .datatable-table thead{
+  background-color: #f6f7f8;
+}
+
+.datatable-wrapper .datatable-table thead th .datatable-sorter, .datatable-wrapper .datatable-table thead th{
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.dark .datatable-wrapper .datatable-table thead th .datatable-sorter:hover, .dark .datatable-wrapper .datatable-table thead th.datatable-ascending .datatable-sorter, .dark .datatable-wrapper .datatable-table thead th.datatable-descending .datatable-sorter{
+  color: #000000;
+}
+
+
+.datatable-wrapper .datatable-table thead th, .datatable-wrapper .datatable-table tbody th, .datatable-wrapper .datatable-table tbody td{
+  color: #000000;
+}
+
+.dark .datatable-wrapper .datatable-search .datatable-input, .dark .datatable-wrapper .datatable-input{
+  background-color: #f9fafb; /* bg-gray-50 */
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  color: #111827; /* text-gray-900 */
+  font-size: 0.875rem; /* text-sm */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 0.625rem; /* p-2.5 */
+}
+
+.datatable-wrapper .datatable-search .datatable-input:focus{
+  outline: none;
+  color: #111827; /* focus:ring-primary-600 */
+  border-color: #2563eb; /* focus:border-primary-600 */
+}
+
+.dark .datatable-wrapper .datatable-top .datatable-dropdown .datatable-selector{
+  background-color: #f9fafb;
+  color: #111827;
+  cursor: pointer;
+}
+
+.dark .datatable-wrapper .datatable-top .datatable-dropdown, .dark .datatable-wrapper .datatable-bottom .datatable-info {
+  color: #111827;
+}
